@@ -1,0 +1,34 @@
+We have an astrology app backend fully calculating kundli data, dashas, transits, yogas, and other astrological factors. The frontend currently only takes user birth details and does not display any interpretations yet. The goal is to build a powerful, user-focused kundli interpretation chatbot interface with the following specifications:
+
+1. **User Experience Flow**  
+- After entering birth details, users should be presented with a clean interface listing topic categories such as Education, Career, Relationships, Family Karma, Health, Finances, Spirituality, and Life Events.  
+- The user selects one topic they want to explore.
+
+2. **Interpretation Style & Philosophy**  
+- We produce **authoritative, Rishi-like declarative judgments** that reveal **the most major, impactful, and often negative side** of the selected topic based strictly on precise astrological calculations.  
+- Avoid generic or overly positive readings; the focus is on **revealing significant challenges, obstacles, or karmic burdens** that shape life’s major events since negative influences often carry more weight and are less emphasized by typical apps.  
+- Positive declarations are included **only if strongly dominant** or corrective, otherwise neutral or normal outcomes are briefly stated.  
+- Each output is like a **shocking revelation or significant truth**, presented clearly and without uncertainty or vague “maybes.”
+
+3. **Astrological Calculation Requirements**  
+- Each declared interpretation must be based on **multi-factor confirmation**: multiple natal chart factors, house lords, dashas, transit overlays, and classical yogas combining to yield a confidence score above a set threshold (e.g., 70%).  
+- Past events must be verifiable from dasha periods and chart combinations; future predictions must align with transit-dasha timing.  
+- Minor influences or weak afflictions are not to be included.
+
+4. **Output Content**  
+- For each user-selected topic, provide **1 to 3 concise, high-impact declarations** that strongly characterize the user’s life experience or karmic theme in that domain.  
+
+- If no significant negative or dominant positive theme exists, output a **neutral clear statement** acknowledging normalcy.
+
+5. **Interaction and UI**  
+- Implement a chat-like conversational UI or focused Q&A interface presenting these judgments dynamically.  
+- Include **fallback handling** for unclear queries to guide user back to focused topics.  
+- Ensure results are presented immediately after birth details submission or topic selection, making the app interactive and responsive.
+
+
+so declarations by : 1.	Calculates confidence scores and only displays predictions scoring ≥70%.
+2.	Focuses exclusively on major life-altering events: parental disruptions, education blocks, childhood trauma, financial loss patterns, physical separations etc. 
+3.	Uses declarative, non-hedging language (e.g., ‘You experienced…’, ‘Your education was blocked…’).
+
+4.	Integrates dasha period analysis to time events as past occurrences or future certainties.
+5.	Completely ignores minor placements and generic advice.

@@ -1,0 +1,117 @@
+Excellent and very important question — and you’re thinking like a true professional software architect now 🔭
+
+Let’s assess this technically and astrologically based on your codebase analysis.
+You already have a very strong computational foundation, but for high-accuracy predictive astrology, a few more modules are still needed.
+
+⸻
+
+🪔 1️⃣ ✅ What you already have (complete & reliable)
+
+From your /lib modules, these are already implemented and correct for precision-level calculations:
+
+Domain	Status	Comments
+Sidereal Planetary Positions	✅ Complete	Using astronomy-engine + Lahiri Ayanamsa. Excellent precision (same core as Parashara’s Light).
+Ascendant & House Cusps	✅ Complete	Computed correctly with latitude/longitude/time.
+Divisional Charts (D9)	✅ Implemented	Navamsa chart code is sound and accurate.
+Vimshottari Dasha (120-year cycle)	✅ Implemented	Properly calculated from Moon Nakshatra & fractional start.
+Planet Strengths (Virupas)	✅ Present	Uses a simplified Shadbala-like model.
+Yoga Detection	✅ Implemented	Detects major Raja, Dhana, and Pancha-Mahapurusha Yogas.
+Interpretations & House Analysis	✅ Implemented	Template-based system already works.
+
+So for natal chart + divisional + dasha base predictions, your engine is already 90% there.
+
+⸻
+
+🪔 2️⃣ 🔍 What’s partially implemented or missing for accurate predictive output
+
+To reach true professional predictive accuracy (like Parashara’s Light 9 or Jagannatha Hora), you’ll need the following upgrades:
+
+🔹 A. Transit (Gochar) Engine → 🚧 Missing / Planned
+
+Needed for: real-time forecasts, current-year predictions, and “Predictions” tab.
+What to add:
+	•	Compute planetary longitudes for any given date/time (today, future) using your existing astronomy engine.
+	•	Compare each transit planet to natal chart houses and natal planet positions.
+	•	Add logic for key transits:
+	•	Saturn’s position relative to Moon (e.g., Sade Sati, Dhaya)
+	•	Jupiter’s transit effects per house
+	•	Rahu–Ketu transits
+	•	Add a function:
+
+getTransitEffects(date, natalChart)
+
+
+
+⸻
+
+🔹 B. Dasha–Transit Blending Logic → 🚧 Missing / Needed for real predictions
+
+Right now, your Vimshottari Dasha code calculates periods but doesn’t interpret them dynamically.
+You need:
+	•	A mapping between Dasha lords and their house ownership + placement in natal chart.
+	•	Logic like:
+
+function getDashaPhala(mahadashaLord, antarLord, chart) {
+    // Evaluate house rulerships, strengths, yogas
+    // Return textual theme
+}
+
+
+	•	Combine with transits for nuanced predictions:
+	•	“Jupiter–Mercury Dasha with Jupiter transiting 9th house → education, travel, blessings.”
+
+⸻
+
+🔹 C. Comprehensive Shadbala / Balas → ⚙️ Simplified version present
+
+You currently show “Strength in Virupas” (e.g., 420 Virupas), but Parashara’s Light computes:
+	•	Sthana Bala (positional)
+	•	Dig Bala (directional)
+	•	Kala Bala (temporal)
+	•	Drik Bala (aspectual)
+	•	Naisargika Bala (natural)
+	•	Chesta Bala (motional)
+
+👉 Suggestion: add full Shadbala module for professional-grade predictions, since many Yogas depend on exact strength ratios.
+
+⸻
+
+🔹 D. Aspect (Drishti) Engine → ⚙️ Simplified in current version
+
+Your code uses sign-based aspects (7th from each planet), but to refine:
+	•	Implement true angular aspects (Graha Drishti rules: Mars 4–8, Jupiter 5–9, Saturn 3–10).
+	•	This improves:
+	•	Yoga detection
+	•	Strength calculation
+	•	Transit and Dasha interpretations
+
+⸻
+
+🔹 E. Divisional Charts Expansion → ⚙️ Optional but beneficial
+
+You already have D9 (Navamsa).
+For accurate career, marriage, and health predictions, add:
+
+Chart	Purpose
+D10 (Dasamsa)	Career, profession
+D7 (Saptamsa)	Children
+D12 (Dwadasamsa)	Parents
+D16 / D24	Vehicles, education
+
+This will allow Dasha predictions to be cross-checked in relevant divisional charts.
+
+⸻
+
+🔹 F. Annual Chart / Varṣaphala (Solar Return) → 🧩 Advanced predictive feature
+
+This is a yearly forecast system based on Sun’s return to natal longitude each year.
+Can be added later for “Yearly Predictions”.
+
+⸻
+
+🔹 G. Transit Timeline & Dashagraph → 📊 User interface
+
+Your app currently calculates Dashas but doesn’t visualize planetary motion over time.
+Adding a timeline will enhance the “Predictions” module visually.
+
+⸻
